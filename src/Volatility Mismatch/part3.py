@@ -246,21 +246,21 @@ if __name__ == '__main__':
         simulator, weekly_interval, num_simulations)
 
     # --- Task 1 Plot: Histogram of Final Hedge Errors ---
-    plt.figure(figsize=(8, 6))
-    plt.hist(daily_errors, bins=30, alpha=0.6, color='skyblue', label='Daily Hedging', edgecolor='black')
+    plt.figure(figsize=(5, 4))
     plt.hist(weekly_errors, bins=30, alpha=0.6, color='salmon', label='Weekly Hedging', edgecolor='black')
-    plt.title('Task 1: Hedge Error Histogram', fontsize=20)
-    plt.xlabel('Final Hedge Error', fontsize=20)
-    plt.ylabel('Frequency', fontsize=20)
-    plt.legend(fontsize=20)
-    plt.xticks(fontsize=18)
-    plt.yticks(fontsize=18)
+    plt.hist(daily_errors, bins=30, alpha=0.6, color='skyblue', label='Daily Hedging', edgecolor='black')
+    plt.title('Task 1: Hedge Error Histogram')
+    plt.xlabel('Final Hedge Error')
+    plt.ylabel('Frequency')
+    plt.legend()
+    plt.xticks()
+    plt.yticks()
     plt.tight_layout()
     plt.savefig("figures/task1_histograms.png")
     plt.show()
 
     # --- Task 1 Plot: Error Path over Time ---
-    plt.figure(figsize=(12, 5))
+    plt.figure(figsize=(8, 4))
     plt.plot(daily_time_path, daily_error_path, marker='o', label='Daily Error')
     plt.plot(weekly_time_path, weekly_error_path, marker='o', label='Weekly Error')
     plt.title('Task 1: Error Path', fontsize=20)
@@ -268,8 +268,8 @@ if __name__ == '__main__':
     plt.ylabel('Hedge Error', fontsize=20)
     plt.legend(fontsize=20)
     plt.grid(True)
-    plt.xticks(fontsize=18)
-    plt.yticks(fontsize=18)
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
     plt.tight_layout()
     plt.savefig("figures/task1_error_path.png")
     plt.show()
@@ -284,18 +284,18 @@ if __name__ == '__main__':
         initial_price, strike, T, r, pricing_vol, simulated_vol_list, daily_interval, num_simulations)
 
     # --- Task 2 Plot: Histogram for Different True Volatilities ---
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(6.5, 5))
     colors = ['blue', 'green', 'red', 'purple', 'orange']
     for i, sim_vol in enumerate(simulated_vol_list):
         errors = mismatch_results[sim_vol]
         plt.hist(errors, bins=30, alpha=0.5, color=colors[i],
                  label=f'True Vol = {sim_vol:.2f}', edgecolor='black')
-    plt.title('Task 2: Error Histograms', fontsize=20)
-    plt.xlabel('Final Hedge Error', fontsize=20)
-    plt.ylabel('Frequency', fontsize=20)
-    plt.legend(fontsize=16)
-    plt.xticks(fontsize=18)
-    plt.yticks(fontsize=18)
+    plt.title('Task 2: Error Histograms',fontsize=16)
+    plt.xlabel('Final Hedge Error',fontsize=16)
+    plt.ylabel('Frequency',fontsize=16)
+    plt.legend(fontsize=11)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.grid(True)
     plt.tight_layout()
     plt.savefig("figures/task2_histograms.png")
